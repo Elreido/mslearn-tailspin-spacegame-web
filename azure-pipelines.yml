@@ -8,5 +8,8 @@ variables:
     buildConfiguartion: 'Release'
 
 steps:
-- script: dotent build --configuration $(buildConfiguration)
-  displayName: 'dotnet build $(buildConfiguration)'
+- task: DotNetCoreCLI@2
+  displayName: 'Build the release'
+  inputs:
+    command: 'build'
+    arguments: '--configuration Release'
